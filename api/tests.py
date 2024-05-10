@@ -9,7 +9,7 @@ class ProductTests(APITestCase):
         """
         새로운 제품을 생성하고 응답을 검증합니다.
         """
-        url = reverse("product-list")
+        url = reverse("product_list")
         data = {"name": "Test Product", "price": 20}
         response = self.client.post(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -20,5 +20,5 @@ class ProductTests(APITestCase):
         """
         제품 목록을 가져오고 결과를 검증합니다.
         """
-        response = self.client.get(reverse("product-list"))
+        response = self.client.get(reverse("product_list"))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
